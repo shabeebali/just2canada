@@ -7,30 +7,32 @@
 
     <title>Laravel</title>
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}" media="all" />
     <!-- Fonts -->
     <!-- Favicon -->
-    <link rel="icon" href="images/favicon.png" type="image/x-icon" />
+
+    <link rel="icon" href="{{ asset('images/favicon.png') }}" type="image/x-icon" />
     <!-- Bootstrap CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
     <!-- Animate CSS -->
-    <link href="vendors/animate/animate.css" rel="stylesheet">
+    <link href="{{ asset('vendors/animate/animate.cs') }}s" rel="stylesheet">
     <!-- Icon CSS-->
-    <link rel="stylesheet" href="vendors/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{{ asset('vendors/font-awesome/css/font-awesome.min.css') }}">
     <!-- Camera Slider -->
-    <link rel="stylesheet" href="vendors/camera-slider/camera.css">
+    <link rel="stylesheet" href="{{ asset('vendors/camera-slider/camera.css') }}">
     <!-- Owlcarousel CSS-->
-    <link rel="stylesheet" type="text/css" href="vendors/owl_carousel/owl.carousel.min.css" media="all">
-    <link rel="stylesheet" href="vendors/owl_carousel/owl.theme.min.css" media="all">
+    <link rel="stylesheet" type="text/css" href="{{ asset('vendors/owl_carousel/owl.carousel.min.css') }}"
+        media="all">
+    <link rel="stylesheet" href="{{ asset('vendors/owl_carousel/owl.theme.min.css') }}" media="all">
 
     <!--Theme Styles CSS-->
-    <link rel="stylesheet" type="text/css" href="css/style.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}" media="all" />
 
 
-    <link rel="stylesheet" href="mt-includes/css/assets.min513c.css?_build=1633339793" />
-    <link rel="stylesheet" href="mt-demo/93200/93283/mt-content/assets/stylesdd7d.css?_build=1632936756"
+    <link rel="stylesheet" href="{{ asset('mt-includes/css/assets.min513c.css') }}" />
+    <link rel="stylesheet" href="{{ asset('mt-demo/93200/93283/mt-content/assets/stylesdd7d.css') }}"
         id="moto-website-style" />
-    <script src="mt-includes/js/website.assets.minc8df.js?_build=1632918612" type="text/javascript" data-cfasync="false">
+    <script src="{{ asset('mt-includes/js/website.assets.minc8df.js') }}" type="text/javascript" data-cfasync="false">
     </script>
     <script type="text/javascript" data-cfasync="false">
         var websiteConfig = websiteConfig || {};
@@ -66,12 +68,12 @@
         };
         angular.module('website.plugins', []);
     </script>
-    <script src="mt-includes/js/website.min7b53.js?_build=1632918598" type="text/javascript" data-cfasync="false"></script>
+    <script src="{{ asset('mt-includes/js/website.min7b53.js') }}" type="text/javascript" data-cfasync="false"></script>
 
 
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     @stack('scripts-top')
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}" media="all" />
+    <script src="{{ asset('js/app.js') }}"></script>
 </head>
 
 <body id="home">
@@ -79,7 +81,7 @@
     <div class="preloader"></div>
 
     <!-- Header_Area -->
-    <nav class="navbar navbar-default header_aera" id="main_navbar">
+    <nav class="navbar navbar-default header_aera" id="main_navbar_disabled" style="position: fixed">
         <!-- Top Header_Area -->
         <div class="top_header_area">
             <div class="container">
@@ -89,22 +91,30 @@
                 </ul>
                 <a href="https://iccrc-crcic.ca/" target="_blank" rel="noopener">
                     <img class="iccrc alignnone wp-image-1601 size-full"
-                        style="float: left; width: auto; height:50px; margin: 0 0 0 2%;" src="images/iccrc.png" alt=""
-                        width="300" height="50" /></a>
+                        style="float: left; width: auto; height:50px; margin: 0 0 0 2%;"
+                        src="{{ asset('images/iccrc.png') }}" alt="" width="300" height="50" /></a>
                 @auth('web')
                     <ul class="nav navbar-nav top_nav" style="float: right; margin-left:15px;">
                         <li>
-                            <a href="#">My Account</a>
+                            <a href="{{ route('dashboard') }}">My Account</a>
+                        </li>
+                        <li>
+                            <form method="POST" action="{{ route('logout') }}">
+                                @csrf
+                                <a href="#"
+                                    onclick="event.preventDefault();
+                                                                                            this.closest('form').submit();">Logout</a>
+                            </form>
                         </li>
                     </ul>
                 @endauth
                 @guest('web')
                     <ul class="nav navbar-nav top_nav" style="float: right; margin-left:15px;">
                         <li>
-                            <a href="#">Login</a>
+                            <a href="{{ route('login') }}">Login</a>
                         </li>
                         <li>
-                            <a href="#">Create Account</a>
+                            <a href="{{ route('register') }}">Create Account</a>
                         </li>
                     </ul>
                 @endguest
@@ -146,8 +156,8 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="{{ route('home') }}"><img src="images/logo.png" alt=""
-                            class="img-fluid"></a>
+                    <a class="navbar-brand" href="{{ route('home') }}"><img src="{{ asset('images/logo.png') }}"
+                            alt="" class="img-fluid"></a>
                 </div>
             </div>
 
@@ -156,19 +166,17 @@
                 <div class="collapse navbar-collapse" id="min_navbar">
                     <ul class="nav navbar-nav navbar-right">
                         <li>
-                            <a href="index.php" class="active">Home</a>
+                            <a href="{{ route('home') }}" class="active">Home</a>
                         </li>
                         <li>
-                            <a class="js-scroll-trigger" href="about-us.html">About Us</a>
+                            <a class="js-scroll-trigger" href="{{ route('about-us') }}">About Us</a>
                         </li>
-
-
-                        <li><a class="js-scroll-trigger" href="services.html">Services</a></li>
+                        <li><a class="js-scroll-trigger" href="{{ route('services') }}">Services</a></li>
                         <li>
-                            <a class="js-scroll-trigger" href="personal-immigration.html">Personal Immigration</a>
+                            <a class="js-scroll-trigger" href="{{ route('personal-immigration') }}">Personal
+                                Immigration</a>
                         </li>
-
-                        <li><a href="business-immigration.html">Business Immigration</a></li>
+                        <li><a href="{{ route('business-immigration') }}">Business Immigration</a></li>
                         <!--<li><a href="contact-us.php">Contact Us</a></li> -->
 
                     </ul>

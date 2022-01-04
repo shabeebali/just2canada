@@ -15,7 +15,6 @@ class CreateSkilledWorkersTable extends Migration
     {
         Schema::create('skilled_workers', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained();
             $table->string('firstname');
             $table->string('lastname');
             $table->unsignedInteger('salution');

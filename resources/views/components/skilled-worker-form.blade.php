@@ -103,7 +103,8 @@
             <div :class="errors.email ? 'form-group has-error' : 'form-group'">
                 <label for="email" class="col-sm-4 control-label">Email</label>
                 <div class="col-sm-8">
-                    <input type="email" id="email" name="email" class="form-control w-min" v-model="model.email" />
+                    <input type="email" id="email" name="email" class="form-control w-min" v-model="model.email"
+                        @auth('web') readonly="true" @endauth>
                     <span v-if="errors.email" class="help-block">@{{ errors . email }}</span>
                 </div>
             </div>
@@ -111,7 +112,7 @@
                 <label for="email_confirmation" class="col-sm-4 control-label">Email (Confirm Again)</label>
                 <div class="col-sm-8">
                     <input type="email" id="email_confirmation" name="email_confirmation" class="form-control w-min"
-                        v-model="model.email_confirmation" />
+                        v-model="model.email_confirmation" @auth('web') readonly="true" @endauth />
                     <span v-if="errors.email_confirmation"
                         class="help-block">@{{ errors . email_confirmation }}</span>
                 </div>
@@ -1295,7 +1296,6 @@
         </div>
     </form>
     @push('scripts-top')
-        <script src="{{ asset('js/app.js') }}"></script>
         <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
         <link rel="stylesheet" type="text/css"
             href="//cdnjs.cloudflare.com/ajax/libs/jquery-jgrowl/1.4.8/jquery.jgrowl.min.css" />
@@ -1320,9 +1320,9 @@
                             spouse_dob: null,
                             marital_status: 0,
                             country_id: 0,
-                            email: null,
+                            email: @if (Auth::check()) '{{ Auth::user()->email }}' @else null @endif,
                             resident_country_id: 0,
-                            email_confirmation: null,
+                            email_confirmation: @if (Auth::check()) '{{ Auth::user()->email }}' @else null @endif,
                             phone: null,
                             fax: null,
                             hear_us: null,

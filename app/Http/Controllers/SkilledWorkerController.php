@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ApplicationForm;
 use App\Models\SkilledWorker;
 use App\Models\SkilledWorkerChildren;
 use App\Models\SkilledWorkerEducation;
@@ -53,11 +54,11 @@ class SkilledWorkerController extends Controller
             ]);
         }
         $resume = FALSE;
-        if ($request->resume) {
+        if ($request->resume && $request->resume !== 'null') {
             $resume = $request->file('resume')->store('resumes');
         }
         $request = $request->toArray();
-        //dd($request);
+        // dd($request);
         $data = Arr::only($request, [
             'firstname',
             'lastname',
@@ -76,12 +77,17 @@ class SkilledWorkerController extends Controller
         if ($data['spouse_dob'] == null || $data['spouse_dob'] == 'null') {
             $data['spouse_dob'] = NULL;
         }
+        if ($data['phone'] == null || $data['phone'] == 'null') {
+            $data['phone'] = NULL;
+        }
+        if ($data['fax'] == null || $data['fax'] == 'null') {
+            $data['fax'] = NULL;
+        }
         $aoi = json_decode($data['aoi']);
         if (!is_array($aoi)) {
             $aoi = [$aoi];
         }
         $data['aoi'] = $aoi;
-        $data['user_id'] = $user->id;
         $model = SkilledWorker::create($data);
         if ($resume) {
             $model->resume_uri = $resume;
@@ -94,23 +100,27 @@ class SkilledWorkerController extends Controller
         $model->education()->save($education);
 
         $language = new SkilledWorkerLanguage;
+
         $langReq = json_decode($request['language'], TRUE);
+        $language->language_test = $langReq['language_test'] ?: NULL;
+        $language->done_tef = $langReq['done_tef'] ?: NULL;
+        // dd($langReq);
         if ($langReq['language_test']) {
             if ($langReq['language_test'] == 1) { //IELTS 
-                $language->ielts = $langReq['language']['ielts'];
+                $language->ielts = $langReq['ielts'];
             }
             if ($langReq['language_test'] == 2) { // CELPIP 
-                $language->celpip = $langReq['language']['celpip'];
+                $language->celpip = $langReq['celpip'];
             }
             if ($langReq['language_test'] == 3) { // GENERAL 
-                $language->general = $langReq['language']['general'];
+                $language->general = $langReq['general'];
             }
         }
         if ($langReq['done_tef'] == 1) {
-            $language->general_french = $langReq['language']['general_french'];
+            $language->general_french = $langReq['french_tef'];
         }
         if ($langReq['done_tef'] === 0 || $langReq['done_tef'] === '0') {
-            $language->french_tef = $langReq['language']['french_tef'];
+            $language->french_tef = $langReq['general_french'];
         }
         $model->language()->save($language);
 
@@ -142,6 +152,12 @@ class SkilledWorkerController extends Controller
 
         $finance = new SkilledWOrkerFinance(json_decode($request['business'], TRUE));
         $model->finance()->save($finance);
+
+        $applicationFormModel = new ApplicationForm();
+        $applicationFormModel->application_id = 'AF' . $model->created_at->year . $model->created_at->month . $model->created_at->day . str_pad($model->id, 3, '0', STR_PAD_LEFT);
+        $applicationFormModel->status = 'pending';
+        $applicationFormModel->user_id = $user->id;
+        $model->application_form()->save($applicationFormModel);
 
         return response()->json(['message' => 'success']);
     }

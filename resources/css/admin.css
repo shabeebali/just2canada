@@ -1,0 +1,10 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+td {
+    padding: 15px;
+    @apply border border-gray-200;
+}
+tr:hover {
+    @apply bg-zinc-200;
+}

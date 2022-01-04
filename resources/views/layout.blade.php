@@ -1,3 +1,5 @@
 @include('header')
-@yield('content')
+<div class="content-wrapper">
+    @yield('content')
+</div>
 @include('footer')

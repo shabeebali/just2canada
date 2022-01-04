@@ -2915,7 +2915,7 @@ width: 92%;}
 
 .about-bg{ background:#eeedf2;}
 
-img{ max-width:100%;}
+img{ max-width:100%; display: initial !important;}
 
 
 .color-box {

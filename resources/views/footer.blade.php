@@ -1,6 +1,6 @@
    <div class="moto-widget moto-widget-block footer row-fixed moto-bg-color2_3 moto-spacing-top-large moto-spacing-right-auto moto-spacing-bottom-large moto-spacing-left-auto"
        data-widget="block" data-visible-on="" data-spacing="lala"
-       style="background-image:url(mt-demo/93200/93283/mt-content/uploads/2020/01/mt-1952-contrent-bg07.jpg);background-position:center;background-repeat:no-repeat;background-size:cover;"
+       style="background-image:url({{ asset('mt-demo/93200/93283/mt-content/uploads/2020/01/mt-1952-contrent-bg07.jpg') }});background-position:center;background-repeat:no-repeat;background-size:cover;"
        data-bg-position="center" data-bg-image="2020/01/mt-1952-contrent-bg07.jpg/index.html">
 
 
@@ -10,23 +10,23 @@
 
                <div class="col-md-3">
 
-                   <img src="images/logo2.png"><br>
+                   <img src="{{ asset('images/logo2.png') }}"><br>
                    <br>
 
                    <p><a href="https://www.mbot.com/" target="_blank" rel="noopener"> <img
-                               class="mbot alignnone wp-image-2688 size-full" src="images/mbot.jpg" alt=""
-                               style="float:left; width:36.5%" />
+                               class="mbot alignnone wp-image-2688 size-full" src="{{ asset('images/mbot.jpg') }}"
+                               alt="" style="float:left; width:36.5%" />
                        </a></p>
                    <p><a href="https://www.capic.ca/" target="_blank" rel="noopener">
-                           <img class="capic alignnone wp-image-2687 size-medium" src="images/capic-logo-300x75.jpg"
-                               alt="" style="float: left;
+                           <img class="capic alignnone wp-image-2687 size-medium"
+                               src="{{ asset('images/capic-logo-300x75.jpg') }}" alt="" style="float: left;
 width: 61%;
 margin: 0 0 2% 2%;" width="300" height="75" /> </a></p>
 
                    <p><a href="https://iccrc-crcic.ca/" target="_blank" rel="noopener">
                            <img class="iccrc alignnone wp-image-1601 size-full" style="float: left;
 width: 61%;
-margin: 0 0 0 2%;" src="images/iccrc.png" alt="" width="300" height="61" /></a></p>
+margin: 0 0 0 2%;" src="{{ asset('images/iccrc.png') }}" alt="" width="300" height="61" /></a></p>
                    <div class="clearfix"></div>
                    <br>
 
@@ -181,12 +181,12 @@ margin: 0 0 0 2%;" src="images/iccrc.png" alt="" width="300" height="61" /></a><
 
 
    <!--[if lt IE 9]-->
-   <script src="js/html5shiv.min.js"></script>
-   <script src="js/respond.min.js"></script>
+   <script src="{{ asset('js/html5shiv.min.js') }}"></script>
+   <script src="{{ asset('js/respond.min.js') }}"></script>
    <![endif]-->
  
  <!--<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
-    <script type="text/javascript" src="js/jquery.ripple.js"></script>
+    <script type="text/javascript" src="{{ asset('js/jquery.ripple.js') }}"></script>
     <script type="text/javascript">
         $(function() {
             $('#ripple').ripple();
@@ -205,7 +205,7 @@ margin: 0 0 0 2%;" src="images/iccrc.png" alt="" width="300" height="61" /></a><
  
  
  <!--<script src="js/jquery.min.js"></script> -->
-<script src="js/jquery.ripples.js"></script>
+<script src="{{ asset('js/jquery.ripples.js') }}"></script>
 <script>
     $(document).ready(function() {
         try {
@@ -264,62 +264,62 @@ margin: 0 0 0 2%;" src="images/iccrc.png" alt="" width="300" height="61" /></a><
  
  
     <!-- Bootstrap JS -->
-    <script src="js/bootstrap.min.js"></script>
+    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
 
     <!-- Animate JS -->
-    <script src="vendors/animate/wow.min.js"></script>
+    <script src="{{ asset('vendors/animate/wow.min.js') }}"></script>
     <!-- Camera Slider -->
-    <script src="vendors/camera-slider/jquery.easing.1.3.js"></script>
-    <script src="vendors/camera-slider/camera.min.js"></script>
+    <script src="{{ asset('vendors/camera-slider/jquery.easing.1.3.js') }}"></script>
+    <script src="{{ asset('vendors/camera-slider/camera.min.j') }}s"></script>
     <!-- Isotope JS -->
-    <script src="vendors/isotope/imagesloaded.pkgd.min.js"></script>
-    <script src="vendors/isotope/isotope.pkgd.min.js"></script>
+    <script src="{{ asset('vendors/isotope/imagesloaded.pkgd.min.js') }}"></script>
+    <script src="{{ asset('vendors/isotope/isotope.pkgd.min.js') }}"></script>
     <!-- Progress JS -->
-    <script src="vendors/Counter-Up/jquery.counterup.min.js"></script>
-    <script src="vendors/Counter-Up/waypoints.min.js"></script>
+    <script src="{{ asset('vendors/Counter-Up/jquery.counterup.min.js') }}"></script>
+    <script src="{{ asset('vendors/Counter-Up/waypoints.min.js') }}"></script>
     <!-- Owlcarousel JS -->
-    <script src="vendors/owl_carousel/owl.carousel.min.js"></script>
+    <script src="{{ asset('vendors/owl_carousel/owl.carousel.min.js') }}"></script>
     <!-- Stellar JS -->
-    <script src="vendors/stellar/jquery.stellar.js"></script>
+    <script src="{{ asset('vendors/stellar/jquery.stellar.js') }}"></script>
     <!-- Theme JS -->
-    <script src="js/theme.js"></script>
+    <script src="{{ asset('js/theme.js') }}"></script>
  
  
  
  
  <!-- modernizr js -->
-        <script src="js2/modernizr-2.8.3.min.js"></script>
+        <script src="{{ asset('js2/modernizr-2.8.3.min.js') }}"></script>
         <!-- jquery latest version -->
         <!--<script src="js/jquery.min.js"></script> -->
         <!-- bootstrap js -->
         <!--<script src="js2/bootstrap.min.js"></script> -->
         <!-- op nav js -->
-        <script src="js2/stellarnav.js"></script>
+        <script src="{{ asset('js2/stellarnav.js') }}"></script>
         <!-- owl.carousel js -->
         <!--<script src="js2/owl.carousel.min.js"></script> -->
         <!-- isotope.pkgd.min js -->
-        <script src="js2/isotope.pkgd.min.js"></script>
+        <script src="{{ asset('js2/isotope.pkgd.min.j') }}s"></script>
         <!-- imagesloaded.pkgd.min js -->
-        <script src="js2/imagesloaded.pkgd.min.js"></script>
+        <script src="{{ asset('js2/imagesloaded.pkgd.min.j') }}s"></script>
         <!-- wow js -->
-        <script src="js2/wow.min.js"></script>
+        <script src="{{ asset('js2/wow.min.js') }}"></script>
         <!-- counter top js -->
-        <script src="js2/waypoints.min.js"></script>
-        <script src="js2/jquery.counterup.min.js"></script>
+        <script src="{{ asset('js2/waypoints.min.js') }}"></script>
+        <script src="{{ asset('js2/jquery.counterup.min.js') }}"></script>
         <!-- Skill bar js -->
-        <script src="js2/skill.bars.jquery.js"></script> 
+        <script src="{{ asset('js2/skill.bars.jquery.js') }}"></script> 
         <!-- magnific popup -->
-        <script src="js2/jquery.magnific-popup.min.js"></script>
+        <script src="{{ asset('js2/jquery.magnific-popup.min.js') }}"></script>
         <!-- plugins js -->
-        <script src="js2/plugins.js"></script>
+        <script src="{{ asset('js2/plugins.js') }}"></script>
         <!-- Responsive Menu js -->
-        <script src="js2/stellarnav.js"></script>
+        <script src="{{ asset('js2/stellarnav.js') }}"></script>
         <!-- Slick js -->
-        <script src="js2/slick.js"></script>
+        <script src="{{ asset('js2/slick.js') }}"></script>
         <!-- Switch js -->
-        <script src="js2/color-style.js"></script> 
+        <script src="{{ asset('js2/color-style.js') }}"></script> 
         <!-- main js -->
-        <script src="js2/main.js"></script>
+        <script src="{{ asset('js2/main.js') }}"></script>
  
  
  
