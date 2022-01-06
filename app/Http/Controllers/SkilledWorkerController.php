@@ -17,28 +17,62 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 
 class SkilledWorkerController extends Controller
 {
     public function submit(Request $request)
     {
         $user = User::where('email', $request->email)->first();
-        $request->validate([
+        $data = json_decode($request->business, TRUE);
+        $data['password'] = $request->password;
+        Validator::make($data, [
             'password' => [
-                'required',
                 function ($attribute, $value, $fail) use ($request, $user) {
-                    if (!$user) {
-                        if ($request->password != $request->password_confirmation) {
-                            $fail('Password does not match');
-                        }
-                    } else {
-                        if (!Hash::check($value, $user->password)) {
-                            $fail('Incorrect Password');
+                    if (!Auth::check()) {
+                        if (!$user) {
+                            if ($request->password != $request->password_confirmation) {
+                                $fail('Password does not match');
+                            }
+                        } else {
+                            if (!Hash::check($value, $user->password)) {
+                                $fail('Incorrect Password');
+                            }
                         }
                     }
                 }
-            ]
-        ]);
+            ],
+            'no_of_staff' => function ($attribute, $value, $fail) use ($data) {
+                if ($data['net_worth'] > 5 && $data['has_experience'] == 1 && ($value == '' || $value == null)) {
+                    $fail('This field is required');
+                }
+            },
+            'own_business' => function ($attribute, $value, $fail) use ($data) {
+                if ($data['net_worth'] > 5 && $data['has_experience'] == 1 && ($value == '' || $value == null)) {
+                    $fail('This field is required');
+                }
+            },
+            'percent_of_business' => function ($attribute, $value, $fail) use ($data) {
+                if ($data['net_worth'] > 5 && $data['has_experience'] == 1 && ($value == '' || $value == null)) {
+                    $fail('This field is required');
+                }
+            },
+            'annual_sale' => function ($attribute, $value, $fail) use ($data) {
+                if ($data['net_worth'] > 5 && $data['has_experience'] == 1 && ($value == '' || $value == null)) {
+                    $fail('This field is required');
+                }
+            },
+            'annual_income' => function ($attribute, $value, $fail) use ($data) {
+                if ($data['net_worth'] > 5 && $data['has_experience'] == 1 && ($value == '' || $value == null)) {
+                    $fail('This field is required');
+                }
+            },
+            'net_assets' => function ($attribute, $value, $fail) use ($data) {
+                if ($data['net_worth'] > 5 && $data['has_experience'] == 1 && ($value == '' || $value == null)) {
+                    $fail('This field is required');
+                }
+            }
+        ])->validate();
 
         if (!$user) {
             $user = User::create([

@@ -20,21 +20,21 @@
             <div class="row about_row" style="padding-top:0;">
                 <div class="tittle wow fadeInUpBig " style="text-align:left;">
                     <h1 class="welc-text">
-                        Skilled Worker Assessment</h1><br>
+                        Business Immigration Assessment</h1><br>
                 </div>
                 <div class="skilled-worker-form">
                     <div class="row">
                         <div class="col">
-                            <div class="pull-left">Main Applicant</div>
+                            <div class="pull-left">CONFIDENTIAL WHEN COMPLETED.</div>
                             <div class="pull-right text-danger">Please answer all questions</div>
                         </div>
                     </div>
                     <div class="bg-primary" style="padding: 15px;">
-                        <h6>PERSONAL INFORMATION - JUST TO CANADA INC. IS BOUND BY CONFIDENTIALITY OBLIGATIONS. THE
-                            INFORMATION
-                            SUBMITTED HERE IS TREATED AS STRICTLY CONFIDENTIAL WHEN COMPLETED.</h6>
+                        <h6>Just To Canada case assessment specialists will use the collected information from this form to
+                            assess all Canadian immigration possibilities. None of the information will be shared with any
+                            third parties for any purposes whatsoever..</h6>
                     </div>
-                    <x-skilled-worker-form />
+                    <x-business-immigration-form />
                 </div>
             </div>
         </div>

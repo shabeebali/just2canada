@@ -37,7 +37,7 @@
                         </a>
                     </div>
                     <div class="col-md-4">
-                        <a class=" ser-icon-box2" href="business-immigration-assessment.php">
+                        <a class=" ser-icon-box2" href="{{ route('business-immigration-assessment') }}">
                             <div class=" "><img src="images/form-icon.png" alt="">
                             </div><br>
                             <p class="thumb-corporate__title">Business Immigration</p>

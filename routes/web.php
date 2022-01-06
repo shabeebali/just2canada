@@ -1,10 +1,12 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\BusinessImmigrationController;
 use App\Http\Controllers\FormValidation;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SkilledWorkerController;
 use App\Models\ApplicationForm;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -39,6 +41,7 @@ Route::view('about-us', 'about-us')->name('about-us');
 Route::view('services', 'services')->name('services');
 Route::view('personal-immigration', 'personal-immigration')->name('personal-immigration');
 Route::view('business-immigration', 'business-immigration')->name('business-immigration');
+Route::view('business-immigration-assessment', 'business-immigration-assessment')->name('business-immigration-assessment');
 Route::view('about-us-detail', 'about-us-detail')->name('about-us-detail');
 Route::view('our-team', 'our-team')->name('our-team');
 Route::view('canada', 'canada')->name('canada');
@@ -63,6 +66,18 @@ Route::get('download-resume/{id}', function ($id) {
     }
 })->name('download-resume')->middleware(['auth']);
 Route::view('skilled-worker-assessment-2', 'skilled-worker-assessment-2')->name('skilled-worker-assessment-2')->middleware('auth');
+Route::post('business-immigration-form-submit', [BusinessImmigrationController::class, 'submit'])->name('business-immigration-form-submit');
+Route::post('check-account-exists', function (Request $request) {
+    $user = User::where('email', $request->email)->first();
+    if ($user) {
+        return response()->json([
+            'message' => 'exists'
+        ]);
+    }
+    return response()->json([
+        'message' => 'not-exists'
+    ]);
+})->name('check-account-exists');
 require __DIR__ . '/auth.php';
 
 Route::prefix('admin')->name('admin.')->middleware('guest:admin')->group(function () {

@@ -1260,39 +1260,39 @@
                     </template>
                 </div>
             </div>
-        </div>
-        <div class="page-5" v-if="page == 5">
-            <div class="border-gray-800 border">
-                <div class="bg-gray-800 text-white py-2 px-4">
-                    <h6>Account Details</h6>
-                </div>
-                <div class="text-center font-bold my-3 text-blue-900">
-                    @{{ account_exists ? 'Enter your account password to submit' : 'Create password' }}</div>
-                <div class="form-horizontal mt-2 p-4">
-                    <div :class="errors.password ? 'form-group has-error' : 'form-group'">
-                        <label for="child-6" class="col-sm-4 control-label">Password</label>
-                        <div class="col-sm-8">
-                            <input type="password" class="form-control w-min" v-model="model.password">
-                            <span v-if="errors.password" class="help-block">@{{ errors . password }}</span>
+            @guest
+                <div class="border-gray-800 border">
+                    <div class="bg-gray-800 text-white py-2 px-4">
+                        <h6>Account Details</h6>
+                    </div>
+                    <div class="text-center font-bold my-3 text-blue-900">
+                        @{{ account_exists ? 'Enter your account password to submit' : 'Create password' }}</div>
+                    <div class="form-horizontal mt-2 p-4">
+                        <div :class="errors.password ? 'form-group has-error' : 'form-group'">
+                            <label for="child-6" class="col-sm-4 control-label">Password</label>
+                            <div class="col-sm-8">
+                                <input type="password" class="form-control w-min" v-model="model.password">
+                                <span v-if="errors.password" class="help-block">@{{ errors . password }}</span>
+                            </div>
+                        </div>
+                        <div class="form-group" v-if="!account_exists">
+                            <label for="child-6" class="col-sm-4 control-label">Confirm Password</label>
+                            <div class="col-sm-8">
+                                <input type="password" class="form-control w-min" v-model="model.password_confirmation">
+                            </div>
                         </div>
                     </div>
-                    <div class="form-group" v-if="!account_exists">
-                        <label for="child-6" class="col-sm-4 control-label">Confirm Password</label>
-                        <div class="col-sm-8">
-                            <input type="password" class="form-control w-min" v-model="model.password_confirmation">
-                        </div>
-                    </div>
                 </div>
-                <div class="row flex justify-center my-3">
-                    <button class="bg-green-700 py-3 px-4 text-white" @click.prevent="submit()">Submit</button>
-                </div>
+            @endguest
+            <div class="row flex justify-center my-3">
+                <button class="bg-blue-800 py-2 px-4 text-white" @click.prevent="submit()">Submit</button>
             </div>
         </div>
         <div class="row flex justify-center mt-3">
             <button class="py-2 px-4 bg-gray-800 mr-3 text-white outline-none rounded" v-on:click.prevent="prev()"
                 :disabled="page == 1">Prev</button>
             <button class="py-2 px-4 bg-gray-800 text-white outline-none rounded" v-on:click.prevent="next()"
-                v-if="page < 5">Next</button>
+                v-if="page < 4">Next</button>
         </div>
     </form>
     @push('scripts-top')
@@ -1547,6 +1547,12 @@
                         }).catch((error) => {
                             if (error.response.status == 422) {
                                 this.errors.password = error.response.data.errors.password[0]
+                                Object.keys(this.errors).forEach((k) => {
+                                    this.errors[k] = null
+                                })
+                                Object.keys(error.response.data.errors).forEach((key) => {
+                                    this.errors[key] = error.response.data.errors[key][0]
+                                })
                             }
                         }).finally(() => {
                             this.loading = false
