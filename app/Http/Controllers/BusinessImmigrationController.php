@@ -478,7 +478,7 @@ class BusinessImmigrationController extends Controller
     public function FormSubmissionToMail($id)
     {
         $afdata = \App\Models\ApplicationForm::find($id);
-        $str = view('components.view-business-immigration-form2', ['afdata', $afdata])->render();
+        $str = view('components.view-business-immigration-form2', ['afdata' => $afdata])->render();
         return $str;
     }
 }
