@@ -312,6 +312,26 @@ class BusinessImmigrationController extends Controller
         return $retstr;
     }
 
+    public
+    function GetMailStyle()
+
+    {
+
+        $retstr = "\n<style>" .
+
+            "body,.label,.value { font-family:Arial,Verdana; } " .
+
+            ".label {font-weight:bold; margin-top:5px; font-size:1em; color:#333;} " .
+
+            ".value {margin-bottom:15px;font-size:1.0em;padding-left:5px;} " .
+
+            "</style>\n";
+
+
+
+        return $retstr;
+    }
+
     public function GetHTMLFooterPart()
 
     {
