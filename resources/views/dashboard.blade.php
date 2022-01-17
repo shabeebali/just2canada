@@ -1,11 +1,11 @@
 @extends('layout')
 @section('content')
-    <header class="bg-white shadow container">
+    <header class="bg-white shadow container" class="margin-top:20px;">
         <div class="mx-auto py-6 px-4 sm:px-6 lg:px-8 flex justify-between items-center">
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                {{ __('Dashboard') }}
-            </h2>
-            <a href="{{ route('obtain-free-assessment') }}" class="rounded bg-blue-800 text-white px-4 text-xl py-2">New
+            <h4 class="pull-left">
+                {{ __('My Account') }}
+            </h4>
+            <a href="{{ route('obtain-free-assessment') }}" class="btn pull-right">New
                 Application</a>
         </div>
     </header>
@@ -15,7 +15,7 @@
                 <div class="flex flex-row flex-wrap">
                     <div class="basis-full md:basis-3/4 p-2">
                         <div class="text-lg my-3">Your Applications</div>
-                        <table class="border-collapse w-full border border-gray-200 ">
+                        <table class="table">
                             <thead class="bg-zinc-100 hover:bg-zinc-200">
                                 <tr>
                                     <th class="border border-gray-300 py-2">Application ID</th>
@@ -35,7 +35,8 @@
                                             <td><a
                                                     href="{{ route('view-application', $row->id) }}">{{ $row->application_id }}</a>
                                             </td>
-                                            <td>{{ $row->type }}</td>
+                                            <td>{{ $row->typable_type == 'App\Models\SkilledWorker' ? 'Skilled Worker' : 'Business Immigration' }}
+                                            </td>
                                             <td>{{ $row->status }}</td>
                                             <td>{{ \Carbon\Carbon::parse($row->created_at)->toDateString() }}</td>
                                         </tr>

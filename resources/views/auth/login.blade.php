@@ -1,6 +1,7 @@
 @extends('layout')
 @section('content')
     <x-auth-card>
+        <div class="text-2xl text-center">Login</div>
         <!-- Session Status -->
         <x-auth-session-status class="mb-4" :status="session('status')" />
 

@@ -46,6 +46,19 @@ Route::view('about-us-detail', 'about-us-detail')->name('about-us-detail');
 Route::view('our-team', 'our-team')->name('our-team');
 Route::view('canada', 'canada')->name('canada');
 Route::view('united-states', 'united-states')->name('united-states');
+Route::view('express-entry-canada', 'express-entry-canada')->name('express-entry-canada');
+Route::view('skilled-worker', 'skilled-worker')->name('skilled-worker');
+Route::view('federal-skilled-trade-workers', 'federal-skilled-trade-workers')->name('federal-skilled-trade-workers');
+Route::view('provincial-nominee-immigration', 'provincial-nominee-immigration')->name('provincial-nominee-immigration');
+Route::view('labour-market-impact-assessment', 'labour-market-impact-assessment')->name('labour-market-impact-assessment');
+Route::view('lmia-employers-service', 'lmia-employers-service')->name('lmia-employers-service');
+Route::view('work-permits', 'work-permits')->name('work-permits');
+Route::view('bridging-open-work-permits', 'bridging-open-work-permits')->name('bridging-open-work-permits');
+Route::view('business-provincial-nominee-immigration', 'business-provincial-nominee-immigration')->name('business-provincial-nominee-immigration');
+Route::view('canada-start-up-visa', 'canada-start-up-visa')->name('canada-start-up-visa');
+Route::view('intra-company-transfers', 'intra-company-transfers')->name('intra-company-transfers');
+Route::view('lmia-owner-operators', 'lmia-owner-operators')->name('lmia-owner-operators');
+Route::view('testimonials', 'testimonials')->name('testimonials');
 Route::get('view-application/{id}', function ($id) {
     $form = ApplicationForm::find($id);
     if ($form->user_id == Auth::user()->id) {

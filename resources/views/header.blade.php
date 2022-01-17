@@ -10,7 +10,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}" media="all" />
     <!-- Fonts -->
     <!-- Favicon -->
-
+    @stack('css-top')
     <link rel="icon" href="{{ asset('images/favicon.png') }}" type="image/x-icon" />
     <!-- Bootstrap CSS -->
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
@@ -32,54 +32,15 @@
     <link rel="stylesheet" href="{{ asset('mt-includes/css/assets.min513c.css') }}" />
     <link rel="stylesheet" href="{{ asset('mt-demo/93200/93283/mt-content/assets/stylesdd7d.css') }}"
         id="moto-website-style" />
-    <script src="{{ asset('mt-includes/js/website.assets.minc8df.js') }}" type="text/javascript" data-cfasync="false">
-    </script>
-    <script type="text/javascript" data-cfasync="false">
-        var websiteConfig = websiteConfig || {};
-        websiteConfig.address = 'index.html';
-        websiteConfig.addressHash = '6402f41ce3885394c22d1e8038067d85';
-        websiteConfig.apiUrl = 'api.json';
-        websiteConfig.preferredLocale = 'en_US';
-        websiteConfig.preferredLanguage = websiteConfig.preferredLocale.substring(0, 2);
-        websiteConfig.back_to_top_button = {
-            "topOffset": 300,
-            "animationTime": 500,
-            "type": "theme"
-        };
-        websiteConfig.popup_preferences = {
-            "loading_error_message": "The content could not be loaded."
-        };
-        websiteConfig.lazy_loading = {
-            "enabled": true
-        };
-        websiteConfig.cookie_notification = {
-            "enabled": false,
-            "content": "<p class=\"moto-text_normal\">This website uses cookies to ensure you get the best experience on our website.<\/p>",
-            "content_hash": "6610aef7f7138423e25ee33c75f23279",
-            "controls": {
-                "visible": "close,accept",
-                "accept": {
-                    "label": "Got it",
-                    "preset": "default",
-                    "size": "medium",
-                    "cookie_lifetime": 365
-                }
-            }
-        };
-        angular.module('website.plugins', []);
-    </script>
-    <script src="{{ asset('mt-includes/js/website.min7b53.js') }}" type="text/javascript" data-cfasync="false"></script>
-
 
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     @stack('scripts-top')
+    <script src="{{ asset('js2/jquery.min.js') }}"></script>
     <script src="{{ asset('js/app.js') }}"></script>
 </head>
 
 <body id="home">
     <!-- Preloader -->
-    <div class="preloader"></div>
-
     <!-- Header_Area -->
     <nav class="navbar navbar-default header_aera" id="main_navbar_disabled" style="position: fixed">
         <!-- Top Header_Area -->
@@ -103,7 +64,7 @@
                                 @csrf
                                 <a href="#"
                                     onclick="event.preventDefault();
-                                                                                            this.closest('form').submit();">Logout</a>
+                                                                                                            this.closest('form').submit();">Logout</a>
                             </form>
                         </li>
                     </ul>

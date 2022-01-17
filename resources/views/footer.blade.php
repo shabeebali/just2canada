@@ -38,20 +38,20 @@ margin: 0 0 0 2%;" src="{{ asset('images/iccrc.png') }}" alt="" width="300" heig
                    <h2>Navigation</h2>
                    <ul class="list inner clearfix">
                        <li><a href="index.php">Home</a></li>
-                       <li><a href="about-us.html">About Us</a></li>
-                       <li><a href="testimonials.html">Testimonials</a></li>
-                       <li><a href="services.html">Services</a></li>
-                       <li><a href="business-immigration.html">Business Immigration</a></li>
-                       <li><a href="personal-immigration.html">Personal Immigration</a></li>
+                       <li><a href="{{ route('about-us') }}">About Us</a></li>
+                       <li><a href="{{ route('testimonials') }}">Testimonials</a></li>
+                       <li><a href="{{ route('services') }}">Services</a></li>
+                       <li><a href="{{ route('business-immigration') }}">Business Immigration</a></li>
+                       <li><a href="{{ route('personal-immigration') }}">Personal Immigration</a></li>
                        <li><a href="contact-us.php">Contact Us</a></li>
                    </ul>
                </div>
                <div class="col-md-3">
                    <h2>Immigration</h2>
                    <ul class="list inner clearfix">
-                       <li><a href="skilled-worker.html">Skilled Worker</a></li>
-                       <li><a href="business-immigration.html">Business Immigration</a></li>
-                       <li><a href="business-provincial-nominee-immigration.html">Senior Managers</a></li>
+                       <li><a href="{{ route('skilled-worker') }}">Skilled Worker</a></li>
+                       <li><a href="{{ route('business-immigration') }}">Business Immigration</a></li>
+                       <li><a href="{{ route('business-provincial-nominee-immigration') }}">Senior Managers</a></li>
                        <li><a href="contact-us.php">Contact Us</a></li>
                    </ul>
                </div>
@@ -177,192 +177,173 @@ margin: 0 0 0 2%;" src="{{ asset('images/iccrc.png') }}" alt="" width="300" heig
 
    </div>
 
-   <!-- Mobile Icons -->
+   <!--<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+   <script type="text/javascript" src="{{ asset('js/jquery.ripple.js') }}"></script>
+   <script type="text/javascript">
+       $(function() {
+           $('#ripple').ripple();
+       })
+   </script>
+   <script src="{{ asset('js/jquery.ripples.js') }}"></script>
+   <script>
+       $(document).ready(function() {
+           try {
+               $('.a,.b,.c').ripples({
+                   resolution: 256,
+                   perturbance: 0.04
+               });
+           } catch (e) {
+               $('.error').show().text(e);
+           }
+       });
+   </script>
+
+   <style>
+       .water {
+           position: fixed;
+
+           font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+           z-index: 999999999;
+       }
+
+       .a {
+           left: 0;
+           top: 0;
+           right: 51%;
+           bottom: 51%;
+           background-size: cover;
+       }
+
+       .b {
+           left: 51%;
+           top: 25.5%;
+           right: 0;
+           bottom: 25.5%;
+           background-attachment: fixed;
+       }
+
+       .c {
+           left: 0;
+           top: 51%;
+           right: 51%;
+           bottom: 0;
+           background-size: cover;
+       }
+
+       .error {
+           position: fixed;
+           bottom: 0;
+           left: 0;
+           right: 0;
+           background: rgba(0, 0, 0, 0.8);
+           color: #eee;
+           padding: 20px;
+           display: none;
+       }
+
+   </style>
 
 
-   <!--[if lt IE 9]-->
-   <script src="{{ asset('js/html5shiv.min.js') }}"></script>
-   <script src="{{ asset('js/respond.min.js') }}"></script>
-   <![endif]-->
- 
- <!--<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
-    <script type="text/javascript" src="{{ asset('js/jquery.ripple.js') }}"></script>
-    <script type="text/javascript">
-        $(function() {
-            $('#ripple').ripple();
-        })
-    </script>	
-         
-    
- <!-- jquery latest version -->
-       <!-- <script src="js/jquery.min.js"></script> -->
-        <!-- bootstrap js -->
-         
- 
- 
-    <!-- jQuery JS -->
-    <!--<script src="js/jquery-1.12.0.min.js"></script> -->
- 
- 
- <!--<script src="js/jquery.min.js"></script> -->
-<script src="{{ asset('js/jquery.ripples.js') }}"></script>
-<script>
-    $(document).ready(function() {
-        try {
-            $('.a,.b,.c').ripples({
-                resolution: 256,
-                perturbance: 0.04
-            });
-        } catch (e) {
-            $('.error').show().text(e);
-        }
-    });
-</script>
+   <!-- Bootstrap JS -->
+   <script src="{{ asset('js/bootstrap.min.js') }}"></script>
 
-<style>
- 
-.water { position:fixed;
- 
- font-family: "Helvetica Neue","Helvetica","Arial",sans-serif; z-index:999999999;
-}
+   <!-- Animate JS -->
+   <script src="{{ asset('vendors/animate/wow.min.js') }}"></script>
+   <!-- Camera Slider -->
+   <script src="{{ asset('vendors/camera-slider/jquery.easing.1.3.js') }}"></script>
+   <script src="{{ asset('vendors/camera-slider/camera.min.j') }}s"></script>
+   <!-- Isotope JS -->
+   <script src="{{ asset('vendors/isotope/imagesloaded.pkgd.min.js') }}"></script>
+   <script src="{{ asset('vendors/isotope/isotope.pkgd.min.js') }}"></script>
+   <!-- Progress JS -->
+   <script src="{{ asset('vendors/Counter-Up/jquery.counterup.min.js') }}"></script>
+   <script src="{{ asset('vendors/Counter-Up/waypoints.min.js') }}"></script>
+   <!-- Owlcarousel JS -->
+   <script src="{{ asset('vendors/owl_carousel/owl.carousel.min.js') }}"></script>
+   <!-- Stellar JS -->
+   <script src="{{ asset('vendors/stellar/jquery.stellar.js') }}"></script>
+   <!-- Theme JS -->
+   <script src="{{ asset('js/theme.js') }}"></script>
 
-.a {
- left: 0;
- top: 0;
- right: 51%;
- bottom: 51%;
- background-size: cover;
-}
 
-.b {
- left: 51%;
- top: 25.5%;
- right: 0;
- bottom: 25.5%;
- background-attachment: fixed;
-}
 
-.c {
- left: 0;
- top: 51%;
- right: 51%;
- bottom: 0;
- background-size: cover;
-}
 
-.error {
- position: fixed;
- bottom: 0;
- left: 0;
- right: 0;
- background: rgba(0,0,0,0.8);
- color: #eee;
- padding: 20px;
- display: none;
-}
-</style>
- 
- 
-    <!-- Bootstrap JS -->
-    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+   <!-- modernizr js -->
+   <script src="{{ asset('js2/modernizr-2.8.3.min.js') }}"></script>
+   <!-- jquery latest version -->
+   <!--<script src="js/jquery.min.js"></script> -->
+   <!-- bootstrap js -->
+   <!--<script src="js2/bootstrap.min.js"></script> -->
+   <!-- op nav js -->
+   <script src="{{ asset('js2/stellarnav.js') }}"></script>
+   <!-- owl.carousel js -->
+   <!--<script src="js2/owl.carousel.min.js"></script> -->
+   <!-- isotope.pkgd.min js -->
+   <script src="{{ asset('js2/isotope.pkgd.min.j') }}s"></script>
+   <!-- imagesloaded.pkgd.min js -->
+   <script src="{{ asset('js2/imagesloaded.pkgd.min.j') }}s"></script>
+   <!-- wow js -->
+   <script src="{{ asset('js2/wow.min.js') }}"></script>
+   <!-- counter top js -->
+   <script src="{{ asset('js2/waypoints.min.js') }}"></script>
+   <script src="{{ asset('js2/jquery.counterup.min.js') }}"></script>
+   <!-- Skill bar js -->
+   <script src="{{ asset('js2/skill.bars.jquery.js') }}"></script>
+   <!-- magnific popup -->
+   <script src="{{ asset('js2/jquery.magnific-popup.min.js') }}"></script>
+   <!-- plugins js -->
+   <script src="{{ asset('js2/plugins.js') }}"></script>
+   <!-- Responsive Menu js -->
+   <script src="{{ asset('js2/stellarnav.js') }}"></script>
+   <!-- Slick js -->
+   <script src="{{ asset('js2/slick.js') }}"></script>
+   <!-- Switch js -->
+   <script src="{{ asset('js2/color-style.js') }}"></script>
+   <!-- main js -->
 
-    <!-- Animate JS -->
-    <script src="{{ asset('vendors/animate/wow.min.js') }}"></script>
-    <!-- Camera Slider -->
-    <script src="{{ asset('vendors/camera-slider/jquery.easing.1.3.js') }}"></script>
-    <script src="{{ asset('vendors/camera-slider/camera.min.j') }}s"></script>
-    <!-- Isotope JS -->
-    <script src="{{ asset('vendors/isotope/imagesloaded.pkgd.min.js') }}"></script>
-    <script src="{{ asset('vendors/isotope/isotope.pkgd.min.js') }}"></script>
-    <!-- Progress JS -->
-    <script src="{{ asset('vendors/Counter-Up/jquery.counterup.min.js') }}"></script>
-    <script src="{{ asset('vendors/Counter-Up/waypoints.min.js') }}"></script>
-    <!-- Owlcarousel JS -->
-    <script src="{{ asset('vendors/owl_carousel/owl.carousel.min.js') }}"></script>
-    <!-- Stellar JS -->
-    <script src="{{ asset('vendors/stellar/jquery.stellar.js') }}"></script>
-    <!-- Theme JS -->
-    <script src="{{ asset('js/theme.js') }}"></script>
- 
- 
- 
- 
- <!-- modernizr js -->
-        <script src="{{ asset('js2/modernizr-2.8.3.min.js') }}"></script>
-        <!-- jquery latest version -->
-        <!--<script src="js/jquery.min.js"></script> -->
-        <!-- bootstrap js -->
-        <!--<script src="js2/bootstrap.min.js"></script> -->
-        <!-- op nav js -->
-        <script src="{{ asset('js2/stellarnav.js') }}"></script>
-        <!-- owl.carousel js -->
-        <!--<script src="js2/owl.carousel.min.js"></script> -->
-        <!-- isotope.pkgd.min js -->
-        <script src="{{ asset('js2/isotope.pkgd.min.j') }}s"></script>
-        <!-- imagesloaded.pkgd.min js -->
-        <script src="{{ asset('js2/imagesloaded.pkgd.min.j') }}s"></script>
-        <!-- wow js -->
-        <script src="{{ asset('js2/wow.min.js') }}"></script>
-        <!-- counter top js -->
-        <script src="{{ asset('js2/waypoints.min.js') }}"></script>
-        <script src="{{ asset('js2/jquery.counterup.min.js') }}"></script>
-        <!-- Skill bar js -->
-        <script src="{{ asset('js2/skill.bars.jquery.js') }}"></script> 
-        <!-- magnific popup -->
-        <script src="{{ asset('js2/jquery.magnific-popup.min.js') }}"></script>
-        <!-- plugins js -->
-        <script src="{{ asset('js2/plugins.js') }}"></script>
-        <!-- Responsive Menu js -->
-        <script src="{{ asset('js2/stellarnav.js') }}"></script>
-        <!-- Slick js -->
-        <script src="{{ asset('js2/slick.js') }}"></script>
-        <!-- Switch js -->
-        <script src="{{ asset('js2/color-style.js') }}"></script> 
-        <!-- main js -->
-        <script src="{{ asset('js2/main.js') }}"></script>
- 
- 
- 
-<!-- Start of LiveChat (www.livechatinc.com) code -->
-<script>
-    window.__lc = window.__lc || {};
-    window.__lc.license = 13225764;;
-    (function(n, t, c) {
-        function i(n) {
-            return e._h ? e._h.apply(null, n) : e._q.push(n)
-        }
-        var e = {
-            _q: [],
-            _h: null,
-            _v: "2.0",
-            on: function() {
-                i(["on", c.call(arguments)])
-            },
-            once: function() {
-                i(["once", c.call(arguments)])
-            },
-            off: function() {
-                i(["off", c.call(arguments)])
-            },
-            get: function() {
-                if (!e._h) throw new Error("[LiveChatWidget] You can't use getters before load.");
-                return i(["get", c.call(arguments)])
-            },
-            call: function() {
-                i(["call", c.call(arguments)])
-            },
-            init: function() {
-                var n = t.createElement("script");
-                n.async = !0, n.type = "text/javascript", n.src = "https://cdn.livechatinc.com/tracking.js",
-                    t.head.appendChild(n)
-            }
-        };
-        !n.__lc.asyncInit && e.init(), n.LiveChatWidget = n.LiveChatWidget || e
-    }(window, document, [].slice))
-</script>
-<noscript><a href="https://www.livechatinc.com/chat-with/13225764/" rel="nofollow">Chat with us</a>, powered by <a href="https://www.livechatinc.com/?welcome" rel="noopener nofollow" target="_blank">LiveChat</a></noscript>
-<!-- End of LiveChat code -->
-@stack('scripts')
-</body>
 
-</html>
+
+   <!-- Start of LiveChat (www.livechatinc.com) code -->
+   <script>
+       window.__lc = window.__lc || {};
+       window.__lc.license = 13225764;;
+       (function(n, t, c) {
+           function i(n) {
+               return e._h ? e._h.apply(null, n) : e._q.push(n)
+           }
+           var e = {
+               _q: [],
+               _h: null,
+               _v: "2.0",
+               on: function() {
+                   i(["on", c.call(arguments)])
+               },
+               once: function() {
+                   i(["once", c.call(arguments)])
+               },
+               off: function() {
+                   i(["off", c.call(arguments)])
+               },
+               get: function() {
+                   if (!e._h) throw new Error("[LiveChatWidget] You can't use getters before load.");
+                   return i(["get", c.call(arguments)])
+               },
+               call: function() {
+                   i(["call", c.call(arguments)])
+               },
+               init: function() {
+                   var n = t.createElement("script");
+                   n.async = !0, n.type = "text/javascript", n.src = "https://cdn.livechatinc.com/tracking.js",
+                       t.head.appendChild(n)
+               }
+           };
+           !n.__lc.asyncInit && e.init(), n.LiveChatWidget = n.LiveChatWidget || e
+       }(window, document, [].slice))
+   </script>
+   <noscript><a href="https://www.livechatinc.com/chat-with/13225764/" rel="nofollow">Chat with us</a>, powered by <a
+           href="https://www.livechatinc.com/?welcome" rel="noopener nofollow" target="_blank">LiveChat</a></noscript>
+   <!-- End of LiveChat code -->
+   @stack('scripts')
+   </body>
+
+   </html>

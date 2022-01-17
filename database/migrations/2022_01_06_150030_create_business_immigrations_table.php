@@ -29,7 +29,7 @@ class CreateBusinessImmigrationsTable extends Migration
             $table->date('dob');
             $table->string('marital_status');
             $table->date('spouse_dob')->nullable();
-            $table->date('spouse_experience')->nullable();
+            $table->integer('spouse_experience')->nullable();
             $table->unsignedInteger('no_of_children')->nullable();
             $table->string('has_children_lt_22')->nullable();
             $table->string('children_enrolled')->nullable();

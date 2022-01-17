@@ -72,7 +72,10 @@
                                                     {{ session('message') }}
                                                 </div>
                                             @endif
-                                            <div class="g-recaptcha" data-sitekey="{{ env('CAPTCHA_SITE_KEY') }}">
+                                            <div class="moto-widget-contact_form-buttons">
+                                                <div class="g-recaptcha"
+                                                    data-sitekey="{{ env('CAPTCHA_SITE_KEY') }}">
+                                                </div>
                                             </div>
                                             @error('g-recaptcha-response')
                                                 <span class="alert alert-danger"

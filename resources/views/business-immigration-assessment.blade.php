@@ -7,7 +7,7 @@
                 <div class="carousel-inner" role="listbox">
                     <!-- Item 1 -->
                     <div class="item active slide1">
-                        <img src="images/banner/form1.jpg" alt="">
+                        <img src="images/banner/form2.jpg" alt="">
                     </div>
                 </div>
             </div>
@@ -23,18 +23,17 @@
                         Business Immigration Assessment</h1><br>
                 </div>
                 <div class="skilled-worker-form">
-                    <div class="row">
-                        <div class="col">
-                            <div class="pull-left">CONFIDENTIAL WHEN COMPLETED.</div>
-                            <div class="pull-right text-danger">Please answer all questions</div>
+                    <div class="form-div">
+                        <h4>CONFIDENTIAL WHEN COMPLETED.</h4>
+                        Just To Canada case assessment specialists will use the collected information from this form to
+                        assess all Canadian immigration possibilities. None of the information will be shared with any third
+                        parties for any purposes whatsoever.
+                        <br>
+                        <br>
+                        <div class="form-inner">
+                            <x-business-immigration-form />
                         </div>
                     </div>
-                    <div class="bg-primary" style="padding: 15px;">
-                        <h6>Just To Canada case assessment specialists will use the collected information from this form to
-                            assess all Canadian immigration possibilities. None of the information will be shared with any
-                            third parties for any purposes whatsoever..</h6>
-                    </div>
-                    <x-business-immigration-form />
                 </div>
             </div>
         </div>

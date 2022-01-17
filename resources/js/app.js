@@ -6,7 +6,7 @@ window.Alpine = Alpine;
 
 Alpine.start();
 */
-$( window ).on( "load", function() {
+$( document ).ready(function() {
     var navbarHeight = $('#main_navbar_disabled').outerHeight();
     $('.content-wrapper').css('margin-top',navbarHeight);
 })

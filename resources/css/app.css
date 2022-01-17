@@ -7,6 +7,7 @@ img {
 .form-control {
     margin-bottom: 10px !important;
 }
+
 .loading-overlay {
     position: absolute;
     height: 100%;
@@ -51,4 +52,7 @@ img {
     100% {
         transform: rotate(360deg);
     }
+}
+.form-control.w-min {
+    width: min-content !important;
 }
